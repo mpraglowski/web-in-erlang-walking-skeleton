@@ -1,6 +1,6 @@
--sname web-release
+-sname web-skeleton
 
--setcookie web-release_cookie
+-setcookie web-skeleton_cookie
 
 +K true
 +A30
