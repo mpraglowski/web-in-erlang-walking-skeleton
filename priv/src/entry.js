@@ -1,0 +1,1 @@
+import React from 'react';import App from './app';import '../css/app.scss';React.render(<App/>, document.body);
