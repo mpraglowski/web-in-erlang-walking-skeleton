@@ -1,5 +1,7 @@
 language: erlang
-install: true
+install:
+  - curl -Lo ./rebar3 https://s3.amazonaws.com/rebar3/rebar3
+  - chmod a+x ./rebar3
 otp_release:
   - 17.5
-script: make
+script: ./rebar3 compile, eunit, ct, dialyzer
