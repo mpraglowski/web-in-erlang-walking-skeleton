@@ -5,4 +5,6 @@ install:
 otp_release:
   - 17.5
 before_script: ./rebar3 update
-script: ./rebar3 do clean, compile, eunit, ct, dialyzer
+script: ./rebar3 do clean, compile, eunit, ct
+after_script: ./rebar3 dialyzer
+
