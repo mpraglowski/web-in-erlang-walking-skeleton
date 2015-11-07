@@ -18,7 +18,12 @@ all: $(REBAR3)
 	@$(REBAR3) do clean, compile, eunit, ct, dialyzer
 
 rel: all
+	cd priv && webpack --color --progress
 	@$(REBAR3) release
+
+run: all
+	cd priv && webpack --color --progress
+	@$(REBAR3) run
 
 $(REBAR3):
 	curl -Lo rebar3 $(REBAR3_URL) || wget $(REBAR3_URL)
