@@ -2,8 +2,9 @@ language: erlang
 install:
   - curl -Lo ./rebar3 https://s3.amazonaws.com/rebar3/rebar3
   - chmod a+x ./rebar3
-  - cd priv && npm install
-  - cd priv && webpack --color --progress
+  - cd priv
+  - npm install
+  - webpack --color --progress
 otp_release:
   - 17.5
 before_script: ./rebar3 update
