@@ -18,4 +18,5 @@ _tdeps
 logs
 _build
 
+priv/bundle.js
 priv/node_modules
