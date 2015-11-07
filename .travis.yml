@@ -5,6 +5,7 @@ install:
   - cd priv
   - npm install
   - webpack --color --progress
+  - cd ..
 otp_release:
   - 17.5
 before_script: ./rebar3 update
