@@ -1,9 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var path = require('path');
-var webpack = require('webpack');
-
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
@@ -14,6 +11,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: 'bundle.js',
+    publicPath: '/assets/',
   },
 
   plugins: [
@@ -35,7 +33,7 @@ module.exports = {
         exclude: /node_modules/ },
       { test: /\.scss?$/,
         loader: 'style!css!sass',
-        include: path.join(__dirname, 'css') },
+        include: path.join(__dirname, 'assets/css') },
       { test: /\.css$/,
         loader: 'style!css' }
     ]
