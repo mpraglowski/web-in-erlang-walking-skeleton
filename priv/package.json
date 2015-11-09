@@ -5,7 +5,9 @@
   "repository": "https://github.com/mpraglowski/web-in-erlang-walking-skeleton",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build-production": "webpack --config webpack.config.js --bail",
+    "dev-server": "webpack-dev-server --config webpack.config.js"
   },
   "dependencies": {
     "babel": "^5.8.20",
