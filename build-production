@@ -1,0 +1,1 @@
+cd priv && webpack --color --progress
