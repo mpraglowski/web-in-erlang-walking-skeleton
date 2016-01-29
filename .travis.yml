@@ -7,7 +7,7 @@ install:
   - webpack --color --progress
   - cd ..
 otp_release:
-  - 17.5
+  - 18.1
 before_script: ./rebar3 update
 script: ./rebar3 do clean, compile, eunit, ct
 #after_script: ./rebar3 dialyzer
