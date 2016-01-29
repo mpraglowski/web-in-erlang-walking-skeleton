@@ -17,10 +17,9 @@
 
 start(_StartType, _StartArgs) ->
     Dispatch = cowboy_router:compile([{'_', routes() }]),
-    Port = web:get_env(port, 8080),
     ok = case cowboy:start_http(
                 web_http_listener, 100,
-                [{port, Port}],
+                [{port, port()}],
                 [{env, [{dispatch, Dispatch}]}]) of
              {ok, _} -> ok;
              {error, {already_started, _}} -> ok;
@@ -35,6 +34,12 @@ stop(_State) ->
 %%====================================================================
 %% Internal functions
 %%====================================================================
+
+port() ->
+   case os:getenv("PORT") of
+       false -> web:get_env(port, 8080);
+       Value -> list_to_integer(Value)
+   end.
 
 routes() ->
   [
