@@ -17,6 +17,7 @@ _plugins
 _tdeps
 logs
 _build
+tags
 
 priv/bundle.js
 priv/node_modules
