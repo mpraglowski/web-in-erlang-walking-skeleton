@@ -20,10 +20,10 @@ Setup on Heroku
 
 ```
 heroku login
-heroku create <app-name> --stack cedar-14 --region <region> --buildpack "https://github.com/ddollar/heroku-buildpack-multi"
+heroku create <app-name> --stack cedar-14 --region <region>
 heroku buildpacks:clear
-heroku buildpacks:add https://github.com/mpraglowski/web-in-erlang-walking-skeleton-buildpack-nodejs
-heroku buildpacks:add https://github.com/heroku/heroku-buildpack-erlang
+heroku buildpacks:add --index 1 heroku/nodejs
+heroku buildpacks:add --index 2 https://github.com/heroku/heroku-buildpack-erlang
 heroku ps:scale web=1
 heroku config:set RELX_REPLACE_OS_VARS=true
 git push heroku master
