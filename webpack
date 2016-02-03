@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd ./priv/
+npm install
+npm run build-production
+cd ..
