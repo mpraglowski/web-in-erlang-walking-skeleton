@@ -17,7 +17,7 @@
 
 start(_StartType, _StartArgs) ->
     Dispatch = cowboy_router:compile([{'_', routes() }]),
-    Port = web:get_env(port, 8080),
+    Port = list_to_integer(web:get_env(port, "8080")),
     ok = case cowboy:start_http(
                 web_http_listener, 100,
                 [{port, Port}],
