@@ -7,6 +7,7 @@
 
 -export([start/0, stop/0]).
 -export([get_env/1, get_env/2, set_env/2]).
+-export([port/0]).
 
 %%====================================================================
 %% API
@@ -42,3 +43,13 @@ get_env(Key, Default) ->
 -spec set_env(atom(), any()) -> ok.
 set_env(Key, Value) ->
     ok = application:set_env(?MODULE, Key, Value).
+
+port() ->
+    case get_env(port, 8080) of
+        Port when is_integer(Port) -> Port;
+        Port when is_list(Port) -> list_to_port(Port)
+    end.
+
+list_to_port("${PORT}") -> 8080;
+list_to_port(Port) when is_list(Port) ->
+  list_to_integer(Port).
